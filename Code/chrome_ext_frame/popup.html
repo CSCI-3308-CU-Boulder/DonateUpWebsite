@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset ="UTF-8">
+  <title>Document</title>
+  
+  <style>
+    
+      
+    
+    body{
+      height:300px;
+      width:250px;
+      border: 1px darkblue;
+      background-color: rgb(209, 231, 255);
+      padding:0px;
+    }
+    h1{
+      font-size: 40px;
+      font:oblique;
+      color: black;
+      text-align: center;
+      background-color:rgb(226, 227, 228);
+      
+    }
+    button{
+      outline: none;
+      height: 70px;
+      width: 100px;
+    }
+    .nameDiv input{
+      width: 95%;
+      clear: both;
+    }
+    #top, #Left, #right, #bottom {
+      background: rgb(209, 231, 255);
+      position:fixed;
+      
+    }
+    
+      
+    
+    #top, #bottom{
+      left: 0px; right: 0px;
+      height: 3px;
+    }
+    #allFormStuff{
+      margin: 0 auto;
+      border: 1px solid rgb(255, 255, 255);
+      padding: 1em;
+      
+
+    }
+    #mainForm{
+      display:none;
+      padding-left: 15px;
+    }
+    #picklist{
+      padding-left: 15px;
+    }
+    #infoP{
+      padding-left: 15px;
+      
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="Left"></div>
+  <div id="right"></div>
+  <div id= "bottom"></div>
+  <h1 id="hh">
+    BeGuud!
+  </h1>
+  <div id="allFormStuff">
+  <div id="picklist" name="picklist">
+    <label for="yesNoPick"> Would you round up your purchase and donate the change to a Charity of your choice?</label><br/>
+    
+<select name ="yesNoPick" id="yesNoPick" form ="mainForm"  required>
+  <option value="select">Select...</option>
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+ 
+</select>
+  </div>
+  
+  <form class= "mainForm" id="mainForm" >
+    <div class="nameDiv" id="nameDiv">
+    <label for="name">
+ Name:
+    </label>
+    <input type="text" name="user_Name"id= "name" required>
+    <br/>
+    <label for "email">
+      Email Address:
+    </label>
+    <input type="email" name="user_Email" id="email" required><br/>
+    </div><br/>
+    <div id="submitButton" name="submitButton">
+      <input type="submit" value="Submit!">
+    </div>
+
+  </form>
+  </div>
+  <!--- drop list of donation sites for button ---->
+  <div id="SelSiteDiv">
+    <p id="pickCharityTxt">Pick the charity you want to help.</p>
+  <select id="selSite" name="selSite" >
+    <option value="none">Select A Charity</option>
+    <option value="char1">Charity 1</option>
+    <option value="char2">Charity 2</option>
+    <option value="char3">Charity 3</option>
+  </select>
+</br>
+  <button  id="donate_b" >Donate Your Change!</button>
+  </div>
+  <a href="https://www.google.com/" target="_blank" id="infoP" class="infoP" name="infoP">More info link!</a>
+ 
+  <script src="popup.js" charset="utf-8"></script>
+  <script src="content.js" charset="utf-8"></script>
+</body>
+</html>
