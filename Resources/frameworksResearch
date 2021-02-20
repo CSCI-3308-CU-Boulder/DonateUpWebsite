@@ -1,0 +1,27 @@
+Various web frameworks to consider:
+
+Django
+Main docs site
+https://docs.djangoproject.com/en/3.1/
+User auth handling
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
+
+Flask
+Main docs site
+https://flask.palletsprojects.com/en/1.1.x/
+User auth handling
+https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+
+Apache Wicket
+Main docs site
+https://ci.apache.org/projects/wicket/guide/9.x/single.html
+User auth handling
+https://ci.apache.org/projects/wicket/guide/9.x/single.html#_authentication
+
+Cake PHP
+Main docs site
+https://book.cakephp.org/4/en/index.html
+User auth handling
+https://book.cakephp.org/authentication/2/en/index.html
+
+
