@@ -1,0 +1,13 @@
+WebServer is currently running on AWS with the Amazon Linux default image.
+
+Webserver software is currently Apache with configuration files at /etc/httpd and base directory at /var/www/html
+TODO: create script to automatically git pull new code and copy updates to web pages to base directory.
+TODO: change webserver to allow for connection to database and API calls from the chrome extension
+
+Public IP: 3.129.70.233
+Domain Name: donateup.life
+Domain is registered through Name Cheap and delegated to Amazon's nameservers.
+
+Management
+Firewall rules placed to allow SSH restricted to specific IPs and networks.
+Firewall rule for webserver allows for public Internet access.
