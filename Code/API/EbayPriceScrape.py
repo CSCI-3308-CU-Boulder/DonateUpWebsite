@@ -9,6 +9,19 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from flask import Flask, render_template
+#from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("PayPallTest.html")
+
+@app.route("/price", methods=['POST', 'GET'])
+def price(scrapedValue):
+    price = 20
+    return render_template('PayPallTest.html', price = scrapedValue)
 
 def get_page(url):
     response = requests.get(url)
@@ -24,18 +37,19 @@ def get_detail_data(soup):
     #price id = prcIsum
     #h1 = soup.find('span', id='prcIsum').get('content')
     h1 = soup.find('span', id='prcIsum').get('content')
-    #h1 = soup.find('span', id = 'pricebook_ourprice')
-    h1 = int(re.search('[0-9]+',h1).group(0))
-    print(h1 + 10)
+    #h1 = soup.find('div').find('class', id = 'od-subtotals')
+    #h1 = int(re.search('[0-9]+',h1).group(0))
+    print(h1)
     return h1
 
 def main():
     url = "https://www.ebay.com/itm/25-Amazon-Gift-Card-in-Gift-Box-Super-Fast-Shipping/324451167326?hash=item4b8acbec5e:g:P10AAOSw8Ntf19~f"
-    #url = "https://www.amazon.com/Mastercard-Gift-Card-plus-Purchase/dp/B07GFQ5B44/ref=sr_1_7?dchild=1&keywords=gift+card&qid=1615238714&sr=8-7"
+    #url = "https://www.amazon.com/gp/your-account/order-details?ie=UTF8&orderID=111-5653505-3572259&ref_=pe_386300_440135490_TE_simp_od&"
     get_detail_data(get_page(url))
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     main()
+    app.run(debug = True)
 
 # try:
 #     pass
