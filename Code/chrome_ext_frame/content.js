@@ -44,3 +44,5 @@ document.addEventListener('DOMContentLoaded',function(){
 document.addEventListener('DOMContentLoaded',function(){
 document.getElementById("donate_b").addEventListener('click',pickCharityButton)
 });
+
+
