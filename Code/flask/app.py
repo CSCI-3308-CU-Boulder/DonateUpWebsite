@@ -1,8 +1,27 @@
 #!/bin/env python3
 from flask import Flask, render_template, current_app, flash, redirect, request, session, abort
 import os
-#making sure I can into branches
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://psql:psql@localhost:5432/donateup_test"
+db = SQLAlchemy(app)
+
+#class userModel(db.Model):
+#    __tablename__ = 'users'
+#
+#    id = db.Column(db.Integer, primary_key=True)
+#    name = db.Column(db.String())
+#    email = db.Column(db.String())
+#    password = db.Column(db.String())
+#    
+#    def __init__(self, name, email, password):
+#        self.name = name
+#        self.email = email
+#        self.password = password
+#
+#    def __repr__(self):
+
 
 @app.route('/<string:page_name>/')
 def render_static(page_name):
