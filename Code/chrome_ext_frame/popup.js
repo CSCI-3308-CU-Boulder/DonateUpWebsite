@@ -76,3 +76,28 @@ document.getElementById("cost").addEventListener("onLoad", function costCalc(){
   document.getElementById("cost").value = 99;
 });
 
+
+
+
+
+
+///background practice stuff
+
+// grab url on tab update
+function handleUpdated(tabId, changeInfo, tabInfo) {
+  console.log("Updated tab: " + tabId);
+  console.log("Changed attributes: ");
+  console.log(changeInfo);
+  console.log("New tab Info: ");
+  console.log(tabInfo);
+}
+
+// chrome.tabs.onUpdated.addListener(handleUpdated);
+document.getElementById("infoBtn").addEventListener("click", function(){
+  chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+    //console.log(tabs[0].url);
+    console.log("Updated url: " + tabs[0].url);
+  });
+    
+
+});
