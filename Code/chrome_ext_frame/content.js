@@ -1,9 +1,18 @@
 
-alert("Would you like to donate your change? Click the Donate Up extension!");
+//messaging practice to popup.js
+//This line opens up a long-lived connection to your background page.
+setTimeout(function(){ var port = chrome.runtime.connect({name:"mycontentscript"});
+port.onMessage.addListener(function(message,sender){
+  
+    alert(message.greeting);
+ 
+});}, 2000);
 
-chrome.runtime.onMessage.addListener(function(request){
-  alert(request)
-})
+
+
+// chrome.runtime.onMessage.addListener(function(request){
+//   alert(request)
+// })
 // function update(){
 //   var x= document.getElementById("yesNoPick").value;
 // if (x=="yes"){

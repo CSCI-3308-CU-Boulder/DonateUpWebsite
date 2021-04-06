@@ -5,6 +5,7 @@
 "content_scripts": [
     {
     "matches": [
+      
       "http://*/cart",
       "https://*/cart",
       "https://*/us/cart"
@@ -28,6 +29,6 @@
     "https://*/*"
   ],
   "background": {
-    "scripts": ["popup.js"]
+    "scripts": ["background.js"]
   }
 }
