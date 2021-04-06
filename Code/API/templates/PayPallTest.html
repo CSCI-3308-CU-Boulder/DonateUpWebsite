@@ -8,11 +8,10 @@
 <body>
 
     <form action = "http://localhost:5000/price" method = "post1">
-        <p><input type = "submit" value = "submit" /></p>
+        <p><input type = "submit" value = "submit" /> Calc Donation </p>
         </form>
-
-<h1 id ="h1Cost"> {{ price }} </h1>
-
+<h2> Donation Amount:</h2>
+<h2 id ="h1Cost"> {{ price }} </h2>
 
 <script>
     function costCalc(){
@@ -29,4 +28,3 @@
         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
         <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" onload="costCalc()" />
         </form>
-        

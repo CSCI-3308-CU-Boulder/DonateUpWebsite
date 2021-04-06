@@ -8,9 +8,7 @@ if (x=="yes"){
   document.getElementById("mainForm").style.display='block';
   document.getElementById("nameDiv").style.display='block';
   document.getElementById("infoP").style.display='block';
-  
 }
-
 
 else{
   document.getElementById("nameDiv").style.display='none';
