@@ -4,14 +4,31 @@
 "manifest_version": 2,
 "content_scripts": [
     {
-    "matches": ["<all_urls>"],
+    "matches": [
+      
+      "http://*/cart",
+      "https://*/cart",
+      "https://*/us/cart"
+      
+    ],
     "js": ["content.js"]
     }
+    
   ],
   "browser_action": {
     "default_icon": "128.png",
-    "default_popup": "popup.html",
+    "default_popup": "/templates/popup.html",
     "default_title": "Yay"
 
+  },
+  
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
   }
 }
