@@ -32,10 +32,10 @@ def render_static(page_name):
 def home():
     return render_template('home.html')
 
-@app.route('/account')
-def account():
+@app.route('/profile')
+def profile():
     if session['logged_in'] == True:
-        return render_template('pay.html')
+        return render_template('MyProfile.html')
     else:
         return home()
 
@@ -50,7 +50,7 @@ def user_login():
     userLoginRequest = userModel.query.filter_by(email=request.form['email']).first()
     if userLoginRequest:
         session['logged_in'] = True
-        return account()
+        return profile()
     else:
         flash('wrong password!')
         return home()
