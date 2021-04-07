@@ -1,5 +1,5 @@
 #!/bin/env python3
-from flask import Flask, render_template, current_app, flash, redirect, request, session, abort
+from flask import Flask, render_template, current_app, flash, redirect, request, session, abort, url_for
 import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import sessionmaker
@@ -47,7 +47,7 @@ def user_login():
     s = Session()
     userLoginRequest = request.form['email']
     passwordLoginRequest = request.form['pwd']
-    userLoginRequest = userModel.query.filter_by(email=request.form['email']).first()
+    userLoginRequest = userModel.query.filter_by(email=request.form['email'],password=request.form['pwd']).first()
     if userLoginRequest:
         session['logged_in'] = True
         return profile()
@@ -55,14 +55,25 @@ def user_login():
         flash('wrong password!')
         return home()
 
-@app.route('/signup', methods=['POST'])
+@app.route('/signup/submit', methods=['POST'])
 def user_signup():
-    newUser = userModel(request.form['email'],request.form['password'])
-    if request.form['pwd'] == 'pass' and request.form['email'] == 'user':
-        session['logged_in'] = True
+    newEmail = request.form['email']
+    newUser = request.form['name']
+    newPassword = request.form['password']
+    confirmNewPassword = request.form['confirmPassword']
+    if newPassword != confirmNewPassword:
+        flash('passwords do not match')
+        return redirect(url_for('home'))
+    if userModel.query.filter_by(email=newEmail):
+        flash('email already has an account')
+        return redirect(url_for('home'))
     else:
-        flash('wrong password!')
-        return home()
+        
+        newAccount = userModel(newEmail,newPassword)
+        db.session.add(newAccount)
+        db.session.commit()
+        flash('account created!')
+        return redirect(url_for('pay'))
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
