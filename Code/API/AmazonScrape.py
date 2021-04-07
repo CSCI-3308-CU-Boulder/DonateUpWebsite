@@ -14,15 +14,18 @@ def get_page(url):
         return 'failed'
     else:
         soup = BeautifulSoup(response.text, 'lxml')
-        #print(soup)
+        #print(response.text)
         return soup
 
 def get_detail_data(soup):
-    h1 = soup.find('span', {"id":"priceblock_saleprice"}).text
-    #h1 = soup.find('input', {"id":"attach-base-product-price"}).get('value')
+    #h1 = soup.find('span', id='attach-base-product-price').get('value')
+    #h1 = soup.find('span', id = 'price_inside_buybox').text
+    #h1 = soup.find("span", {"id":"price_inside_buybox"})
     #<span id="priceblock_saleprice" class="a-size-medium a-color-price priceBlockSalePriceString">$129.99</span>
     #<input type="hidden" id="attach-base-product-price" value="129.99">
-    
+    #<span class="price css-1uihcua ew71yvl1" data-version="@nike/nr-sole-price@4.2.1">$66.00</span>
+    #h1 = soup.find('span', id = 'price_inside_buybox')
+    h1 = soup.find('span', id='price_inside_buybox').text
     print(h1)
     return h1
 
@@ -34,7 +37,6 @@ def main(url):
         print("invlaid URL")
         return "invalid URL"
 
-
 if __name__ == '__main__': 
-    url = "https://www.amazon.com/FEICE-Stainless-Leathers-Waterproof-Business/dp/B074MWWTVL"
+    url = "https://www.amazon.com/FEICE-Stainless-Leathers-Waterproof-Business/dp/B074MWWTVL?th=1"
     main(url)
