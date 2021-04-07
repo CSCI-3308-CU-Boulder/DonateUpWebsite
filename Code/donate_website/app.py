@@ -12,7 +12,7 @@ def render_static(page_name):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('DonateUp_home.html')
 
 # Made with help from https://pythonspot.com/login-authentication-with-flask/
 

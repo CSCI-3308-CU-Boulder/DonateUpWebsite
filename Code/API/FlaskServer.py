@@ -15,8 +15,7 @@ ur = "from EbayPriceScrape import scrapedValue"
 
 @app.route("/")
 def index():
-    return render_template("Home_Flask.html")
-
+    return render_template("DonateUp_home.html")
 @app.route("/price", methods=['POST', 'GET'])
 def price():
     price = 0
@@ -25,10 +24,10 @@ def price():
         print(url)
         from EbayPriceScrape import main
         price = main(url)
-        return render_template('Home_Flask.html', price = price)
+        return render_template('DonateUp_home.html', price = price)
     else:
       user = request.args.get('nm')
-      return render_template('Home_Flask.html', price = price)
+      return render_template('DonateUp_home.html', price = price)
 
 if __name__ == "__main__":
     app.run(debug=True)
