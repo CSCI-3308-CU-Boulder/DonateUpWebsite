@@ -1,0 +1,18 @@
+postgres=# CREATE DATABASE donateup_users;
+
+donateup_users=# CREATE ROLE user LOGIN PASSWORD 'pass';
+
+donateup_users=# grant connect on database donateup_users to dbuser ;
+grant all on DATABASE donateup_users to dbuser ;
+grant all on TABLE users to dbuser ;
+
+donateup=# create table users (id SERIAL UNIQUE, email TEXT, password TEXT);
+
+
+donateup=# insert into users(email,password) values ('foo@bar.com', 'password');
+INSERT 0 1
+
+
+sudo psql -U dbuser --password -h 127.0.0.1 donateup
+
+GRANT ALL ON users_id_seq TO dbuser;
