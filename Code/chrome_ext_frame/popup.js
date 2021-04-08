@@ -1,4 +1,4 @@
-// document.addEventListener('DOMContentLoaded',function(){
+// docuent.addEventListener('DOMContentLoaded',function(){
 //   document.querySelector('button').addEventListener('click',onclick,false)
 
 //   function onclick () {
@@ -84,23 +84,56 @@ document.getElementById("cost").addEventListener("onLoad", function costCalc(){
 ///background practice stuff
 
 // grab url on tab update
-function handleUpdated(tabId, changeInfo, tabInfo) {
-  console.log("Updated tab: " + tabId);
-  console.log("Changed attributes: ");
-  console.log(changeInfo);
-  console.log("New tab Info: ");
-  console.log(tabInfo);
-}
-
+// function handleUpdated(tabId, changeInfo, tabInfo) {
+//   console.log("Updated tab: " + tabId);
+//   console.log("Changed attributes: ");
+//   console.log(changeInfo);
+//   console.log("New tab Info: ");
+//   console.log(tabInfo);
+// }
+var url_var; 
 // chrome.tabs.onUpdated.addListener(handleUpdated);
-document.getElementById("infoBtn").addEventListener("click", function(){
-  chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+document.getElementById("yesBtn").addEventListener("click", function(){
+  chrome.tabs.query({ active: true, highlighted:true}, function(tabs){
     //console.log(tabs[0].url);
+    url_var = tabs[0].url;
     console.log("Updated url: " + tabs[0].url);
+    console.log("Updated url: " + tabs[1].url);
+    console.log("Updated url: " + tabs[2].url);
+    console.log("Updated url: " + tabs[3].url);
   });
-    
+ 
 
 });
+
+// possible tags for tabs. query:::: currentWindow: false,
+
+
+//trying to pass variable url to python funciton. copied from stacks
+// function pass_values() {
+//   var pass_to_python = url_var
+
+//                $.ajax(
+//                {
+//                    type:'POST',
+//                    contentType:'application/json;charset-utf-08',
+//                    dataType:'json',
+//                    url:'http://127.0.0.1:5000/pass_val?value='+pass_to_python ,
+//                    success:function (data) {
+//                        var reply=data.reply;
+//                        if (reply=="success")
+//                        {
+//                            return;
+//                        }
+//                        else
+//                            {
+//                            alert("some error ocured in session agent")
+//                            }
+
+//                    }
+//                }
+//            );
+// }
 
 
 
