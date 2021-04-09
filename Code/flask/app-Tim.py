@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import sessionmaker
 app = Flask(__name__)
 
+<<<<<<< HEAD
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://dbuser:pass@localhost:5432/donateup"
 db = SQLAlchemy(app)
 
@@ -23,6 +24,9 @@ class userModel(db.Model):
 #
 #    def __repr__(self):
 
+=======
+ur = "from EbayPriceScrape import scrapedValue"
+>>>>>>> e4d5379ff692c2f0cd1e199e48a74e9da19f421b
 
 @app.route('/<string:page_name>/')
 def render_static(page_name):
@@ -40,6 +44,20 @@ def profile():
         return home()
 
 # Made with help from https://pythonspot.com/login-authentication-with-flask/
+
+@app.route("/price", methods=['POST', 'GET'])
+def price():
+    price = 0
+    if request.method == 'POST':
+        url = request.form['nm']
+        print(url)
+        from EbayPriceScrape import main
+        price = main(url)
+        return render_template('DonateUp_home.html', price = price)
+    else:
+      user = request.args.get('nm')
+      return render_template('DonateUp_home.html', price = price)
+
 
 @app.route('/login', methods=['POST'])
 def user_login():
