@@ -74,6 +74,13 @@
         <p style="color:#887F7F">
             Donate Up, the effortless way to build charity into your digital life. Make a difference starting today!
         </p>
+        <h2> Donation Amount:</h2>
+        <h3 id ="h1Cost"> {{ price }} </h3>
+        <form action = "http://localhost:5000/price" method = "post">
+          <p>Enter URL:</p>
+          <p><input type = "text" name = "nm" /></p>
+          <p><input type = "submit" value = "Calculate Donation" /></p>
+        </form>
         <!-- BUTTON FOR DOWNLOAD-->
         <br>
         <br>
