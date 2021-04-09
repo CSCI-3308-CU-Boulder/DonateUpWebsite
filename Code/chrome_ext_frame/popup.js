@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // also will display paypal button 
   document.getElementById("yesBtn").addEventListener("click", function(){
     document.getElementById("button_div").style.display="none";
-    document.getElementById("paypal_div").style.display="initial";
+    document.getElementById("charityChoice").style.display="initial";
     document.getElementById("footer").style.left="37%";
     document.getElementById("footer").style.position="fixed";
   });
@@ -55,7 +55,72 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("footer").style.left="37%";
     document.getElementById("footer").style.position="fixed";
   });
- 
+
+  // values for flask and chrarity pick buttons
+
+    //waits for click and when charity is clicked it changes the value of paypal button
+  document.getElementById("char_1").addEventListener("click",function(){
+      //changes value in paypal button
+    document.getElementById("charity_name").value =document.getElementById("char_1").innerHTML;
+    //changes charity button to btn-secondary class
+    document.getElementById("char_1").classList.remove('btn-primary');
+    document.getElementById("char_1").classList.add('btn-secondary');
+    //make sure all other buttons are unselected //// this removes all classes then adds btn-primary
+    document.getElementById("char_2").classList.remove('btn-secondary');
+    document.getElementById("char_2").classList.remove('btn-primary');
+    document.getElementById("char_2").classList.add('btn-primary');
+    document.getElementById("char_3").classList.remove('btn-secondary');
+    document.getElementById("char_3").classList.remove('btn-primary');
+    document.getElementById("char_3").classList.add('btn-primary');
+    console.log(document.getElementById("charity_name").value);
+  });
+  //second charity
+  document.getElementById("char_2").addEventListener("click",function(){
+    //changes value in paypal button
+  document.getElementById("charity_name").value =document.getElementById("char_2").innerHTML;
+  //changes charity button to btn-secondary class
+  document.getElementById("char_2").classList.remove('btn-primary');
+  document.getElementById("char_2").classList.add('btn-secondary');
+  //make sure all other buttons are unselected //// this removes all classes then adds btn-primary
+  document.getElementById("char_3").classList.remove('btn-secondary');
+  document.getElementById("char_3").classList.remove('btn-primary');
+  document.getElementById("char_3").classList.add('btn-primary');
+  document.getElementById("char_1").classList.remove('btn-secondary');
+  document.getElementById("char_1").classList.remove('btn-primary');
+  document.getElementById("char_1").classList.add('btn-primary');
+  console.log(document.getElementById("charity_name").value);
+});
+//third charity
+document.getElementById("char_3").addEventListener("click",function(){
+  //changes value in paypal button
+document.getElementById("charity_name").value =document.getElementById("char_3").innerHTML;
+//changes charity button to btn-secondary class
+document.getElementById("char_3").classList.remove('btn-primary');
+document.getElementById("char_3").classList.add('btn-secondary');
+//make sure all other buttons are unselected //// this removes all classes then adds btn-primary
+document.getElementById("char_2").classList.remove('btn-secondary');
+document.getElementById("char_2").classList.remove('btn-primary');
+document.getElementById("char_2").classList.add('btn-primary');
+document.getElementById("char_1").classList.remove('btn-secondary');
+document.getElementById("char_1").classList.remove('btn-primary');
+document.getElementById("char_1").classList.add('btn-primary');
+console.log(document.getElementById("charity_name").value);
+});
+
+//submit button shows paypal button and hides charity choice.
+document.getElementById("submit_charity").addEventListener("click",function(){
+  document.getElementById("charityChoice").style.display="none";
+  document.getElementById("paypal_div").style.display="initial";
+  
+
+});
+
+
+
+
+
+
+
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 
 document.getElementById("mySidebar").addEventListener("click",function w3_open() {

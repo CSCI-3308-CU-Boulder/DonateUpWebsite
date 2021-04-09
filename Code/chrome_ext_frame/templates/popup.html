@@ -40,6 +40,10 @@ div#paypal_div{
 div#no_selected{
   display:none;
 }
+
+div#charityChoice{
+  display:none;
+}
 .w3-bar .w3-button {
   padding: 16px;
 }
@@ -105,11 +109,19 @@ div#no_selected{
         <button class="btn-primary" id="yesBtn"> YES</button>
         <button id="noBtn"> No</button>
     </div>
+    <!-- div for choosing charity and updating the flask from for the paypal button -->
+    <div class="col-sm-6" id="charityChoice">
+      <button class="btn-primary" id="char_1">St. Jude</button>
+      <button class="btn-primary" id="char_2">Heidi's Heroes</button>
+      <button class="btn-primary" id="char_3">Red Cross</button>
+      <button class="btn-primary" id="submit_charity">Submit</button>
+
+    </div> 
         <!-- paypal button to replace yes no button plus some script -->
     <div class="col-sm-6 centered" id="paypal_div" >
       <form action="https://www.paypal.com/donate" method="post" target="_top">
           <input type="hidden" name="business" value="GL4TYB2U82X66" />
-          <input type="hidden" name="item_name" value = "St Jude!">
+          <input type="hidden" name="item_name" id="charity_name" value = "St Jude!">
           <input type="hidden" name="currency_code" value="USD" />
           <input type="hidden" name="amount" id="cost" value="0"/>
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
