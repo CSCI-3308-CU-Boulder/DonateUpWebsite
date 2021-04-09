@@ -11,9 +11,11 @@
 
 //function to link nav bar to home page website
 document.addEventListener('DOMContentLoaded', function () {
+    //gets all links from html
   var links = document.getElementsByTagName("a");
   for (var i = 0; i < links.length; i++) {
       (function () {
+          //loops through and stores all links in links[]
           var ln = links[i];
           var location = ln.href;
           ln.onclick = function () {
@@ -106,35 +108,29 @@ document.getElementById("yesBtn").addEventListener("click", function(){
 
 });
 
-// possible tags for tabs. query:::: currentWindow: false,
 
+async (event, steps) =>{
+const axios = require("axios")
+const cheerio = require("cheerio")
 
-//trying to pass variable url to python funciton. copied from stacks
-// function pass_values() {
-//   var pass_to_python = url_var
+async function fetchHTML(url) {
+  const { data } = await axios.get(url)
+  return cheerio.load(data)
+}
 
-//                $.ajax(
-//                {
-//                    type:'POST',
-//                    contentType:'application/json;charset-utf-08',
-//                    dataType:'json',
-//                    url:'http://127.0.0.1:5000/pass_val?value='+pass_to_python ,
-//                    success:function (data) {
-//                        var reply=data.reply;
-//                        if (reply=="success")
-//                        {
-//                            return;
-//                        }
-//                        else
-//                            {
-//                            alert("some error ocured in session agent")
-//                            }
+const $ = await fetchHTML("https://nike.com/cart")
 
-//                    }
-//                }
-//            );
-// }
+// Print the full HTML
+//console.log(`Site HTML: ${$.html()}\n\n`)
 
+// Print some specific page content
+console.log(`First h1 tag: ${$('h1').text()}`)
+
+// Store the full HTML as a property of $event so we can 
+// use it in later steps. See
+// https://docs.pipedream.com/notebook/dollar-event/#modifying-event
+this.html = $.html()
+}
 
 
 
