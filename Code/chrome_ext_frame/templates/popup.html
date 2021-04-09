@@ -14,6 +14,12 @@ body, html {
   height: 100%;
   line-height: 1.8;
 }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+ 
+}
 h3{
     line-height:normal;
 
@@ -111,10 +117,28 @@ div#charityChoice{
     </div>
     <!-- div for choosing charity and updating the flask from for the paypal button -->
     <div class="col-sm-6" id="charityChoice">
-      <button class="btn-primary" id="char_1">St. Jude</button>
-      <button class="btn-primary" id="char_2">Heidi's Heroes</button>
-      <button class="btn-primary" id="char_3">Red Cross</button>
-      <button class="btn-primary" id="submit_charity">Submit</button>
+      <div class="card">
+        <div class="container w3-border">
+        <button class="btn-primary btn-block btn-lg" id="char_1">St. Jude</button>
+        <p>St. Jude is a small Jude St. Charity</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="container w3-border">
+         <button class="btn-primary btn-block btn-lg" id="char_2">Heidi's Heroes</button>
+         <p>Heidi's Heroes is a childhood cancer non-profit</p>
+      </div>
+      </div>
+      <div class="card">
+        <div class="container w3-border">
+          <button class="btn-primary btn-block btn-lg" id="char_3">Red Cross</button>
+          <p>Red cross is red cross you know</p>
+          </div>
+      </div>
+      <br>
+      <div class="card">
+          <button class="btn-primary btn-block btn-lg" id="submit_charity">Submit</button>
+      </div>
 
     </div> 
         <!-- paypal button to replace yes no button plus some script -->
