@@ -5,12 +5,14 @@ chrome.runtime.onConnect.addListener(function(port){
     chrome.windows.create({
         url: chrome.extension.getURL("templates/popup.html"), 
         type: "popup",
-        height: 500,
+        height: 540,
         width: 350,
         left: 900,
         top: 100,
     });
   });
+
+  
 
 
   

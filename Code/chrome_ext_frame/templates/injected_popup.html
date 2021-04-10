@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html>
-<title>Donate Up!</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<div id= donateContainer>
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 body, html {
-  height: 100%;
+  height: 500px;
+  width: 300px;
   line-height: 1.8;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 100%;
- 
 }
 h3{
     line-height:normal;
@@ -44,10 +32,6 @@ div#paypal_div{
   
 }
 div#no_selected{
-  display:none;
-}
-
-div#charityChoice{
   display:none;
 }
 .w3-bar .w3-button {
@@ -95,7 +79,7 @@ div#charityChoice{
 </form> -->
 
 <!-- button to practice getting data  -->
-
+<button class="btn-primary" id="infoBtn">get url</button>
 
 <!-- Header with full-height image -->
 <!-- <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
@@ -115,37 +99,11 @@ div#charityChoice{
         <button class="btn-primary" id="yesBtn"> YES</button>
         <button id="noBtn"> No</button>
     </div>
-    <!-- div for choosing charity and updating the flask from for the paypal button -->
-    <div class="col-sm-6" id="charityChoice">
-      <div class="card">
-        <div class="container w3-border">
-        <button class="btn-primary btn-block btn-lg" id="char_1">St. Jude</button>
-        <p>St. Jude is a small Jude St. Charity</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="container w3-border">
-         <button class="btn-primary btn-block btn-lg" id="char_2">Heidi's Heroes</button>
-         <p>Heidi's Heroes is a childhood cancer non-profit</p>
-      </div>
-      </div>
-      <div class="card">
-        <div class="container w3-border">
-          <button class="btn-primary btn-block btn-lg" id="char_3">Red Cross</button>
-          <p>Red cross is red cross you know</p>
-          </div>
-      </div>
-      <br>
-      <div class="card">
-          <button class="btn-primary btn-block btn-lg" id="submit_charity">Submit</button>
-      </div>
-
-    </div> 
         <!-- paypal button to replace yes no button plus some script -->
     <div class="col-sm-6 centered" id="paypal_div" >
       <form action="https://www.paypal.com/donate" method="post" target="_top">
           <input type="hidden" name="business" value="GL4TYB2U82X66" />
-          <input type="hidden" name="item_name" id="charity_name" value = "St Jude!">
+          <input type="hidden" name="item_name" value = "St Jude!">
           <input type="hidden" name="currency_code" value="USD" />
           <input type="hidden" name="amount" id="cost" value="0"/>
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
@@ -182,5 +140,5 @@ div#charityChoice{
  
 <script src="/popup.js"></script>
 </body>
-</html>
+</div>
 
