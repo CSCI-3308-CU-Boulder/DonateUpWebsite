@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 class userModel(db.Model):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     email = db.Column(db.String())
     password = db.Column(db.String())
@@ -22,8 +22,6 @@ class userModel(db.Model):
         self.password = password
 
 #    def __repr__(self):
-
-app = Flask(__name__)
 
 ur = "from EbayPriceScrape import scrapedValue"
 
@@ -69,6 +67,8 @@ def user_login():
     userLoginRequest = request.form['email']
     passwordLoginRequest = request.form['pwd']
     userLoginRequest = userModel.query.filter_by(email=request.form['email'],password=request.form['pwd']).first()
+    #loginRequest = userModel.query.all()
+    #userLoginRequest = True
     if userLoginRequest:
         session['logged_in'] = True
         return profile()

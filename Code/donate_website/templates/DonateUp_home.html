@@ -89,13 +89,13 @@ h3{
       
         <button onclick="sign_up_button()" class="dropbtn">Login/Sign up</button>
         <div id="myDropdown" class="dropdown-content">
-            <form action="/action_page.php">
+            <form action="/login" method="POST">
                 <fieldset>
                   <legend>Login information:</legend>
                   <label for="fname">Email:</label><br>
-                  <input type="text" id="email" email="email" placeholder="Email"><br>
+                  <input type="text" name="email" email="email" placeholder="Email"><br>
                   <label for="lname">Password:</label><br>
-                  <input type="password" id="pwd" pwd="pwd" placeholder="Password"><br><br>
+                  <input type="password" name="pwd" pwd="pwd" placeholder="Password"><br><br>
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>

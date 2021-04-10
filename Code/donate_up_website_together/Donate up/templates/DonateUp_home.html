@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="DonateUp_style.css"> <!--This is the link to the style.css-->
+    <link rel="stylesheet" type="text/css" href="static/DonateUp_style.css"> <!--This is the link to the style.css-->
   </head> 
 <body>
   <header>
     <div class="container-fluid">
       <nav class="navbar"> <!--Use the .css page to adjust this.-->
         <a href="#home" class="w3-bar-item w3-button w3-wide" style="font-size:25px;"> <b>DonateUp</b> + Paypal</a>
-          <button class="btn btn-primary" onclick="document.location='DonateUp_home.html'">Home</button>
-          <button class="btn btn-primary" onclick="document.location='DonateUp_AboutUs.html'">About Us</button>
-          <button class="btn btn-primary" onclick="document.location='DonateUp_MyProfile.html'">My Profile </button>
+          <button class="btn btn-primary" onclick="document.location='DonateUp_home'">Home</button>
+          <button class="btn btn-primary" onclick="document.location='DonateUp_AboutUs'">About Us</button>
+          <button class="btn btn-primary" onclick="document.location='DonateUp_MyProfile'">My Profile </button>
           <button class="btn btn-primary" onclick="openModal()">Sign-in/Log-in</button> 
       </nav>
     </div>
@@ -29,14 +29,13 @@
     <div class="main-modal">
       <h1>Sign-up/Log-in</h1>
       <span class="brmedium"></span>
-      <form action="/action_page.php">
+      <form action="/login" method="POST">
           <fieldset>
             <label for="fname">Email:</label><br>
-            <input type="text" id="email" email="email" placeholder="Email"><br>
+            <input type="text" name="email" placeholder="Email"><br>
             <label for="lname">Password:</label><br>
-            <input type="password" id="pwd" pwd="pwd" placeholder="Password"><br><br>
+            <input type="password" name="pwd" placeholder="Password"><br><br>
           </fieldset>
-        </form>
       <div class="container-fluid" align="center">
       <button class="modalButtons buttonCorner" onclick="closeM()">
         Cancel
@@ -47,6 +46,7 @@
         <button class="modalButtons buttonCorner" onclick="closeM()"><!--------------add log-in link here-->
           Log-in
         </button>
+        </form>
       </div>
       <br/>
       <p class="modalColor" id="changeTextColor">Forgot password</p>
@@ -96,7 +96,7 @@
      <!-- side image of coins etc-->
     <div class="col-sm-5">
         <div class="card">
-        <img class="card-img-bottom" style="width:80%" src="img/homepageflair.jpg" alt="helping hand img">
+        <img class="card-img-bottom" style="width:80%" src="static/img/homepageflair.jpg" alt="helping hand img">
         </div>
     </div>
     
