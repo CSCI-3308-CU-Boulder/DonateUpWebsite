@@ -79,23 +79,23 @@ def user_login():
 
 @app.route('/signup/submit', methods=['POST'])
 def user_signup():
-    newEmail = request.form['email']
-    newUser = request.form['name']
-    newPassword = request.form['password']
-    confirmNewPassword = request.form['confirmPassword']
+    newEmail = request.form['emailField']
+    newUser = request.form['nameField']
+    newPassword = request.form['passwordField']
+    confirmNewPassword = request.form['confirmPasswordField']
     if newPassword != confirmNewPassword:
-        flash('passwords do not match')
+        app.logger.info('passwords do not match')
         return redirect(url_for('home'))
-    if userModel.query.filter_by(email=newEmail):
-        flash('email already has an account')
+    if userModel.query.filter_by(email=newEmail).first():
+        app.logger.info('email already exists')
         return redirect(url_for('home'))
     else:
 
-        newAccount = userModel(newEmail,newPassword)
+        newAccount = userModel(newUser,newEmail,newPassword)
         db.session.add(newAccount)
         db.session.commit()
-        flash('account created!')
-        return redirect(url_for('pay'))
+        app.logger.info('%s created account successfully', newUser)
+        return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)

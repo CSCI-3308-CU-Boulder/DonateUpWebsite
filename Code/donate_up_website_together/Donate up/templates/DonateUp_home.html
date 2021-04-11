@@ -37,16 +37,16 @@
             <input type="password" name="pwd" placeholder="Password"><br><br>
           </fieldset>
       <div class="container-fluid" align="center">
-      <button class="modalButtons buttonCorner" onclick="closeM()">
-        Cancel
-      </button>
-      <button class="modalButtons buttonCorner" onclick="document.location='DonateUp_signup.html'">
-          signup
-        </button>
-        <button class="modalButtons buttonCorner" onclick="closeM()"><!--------------add log-in link here-->
+        <button class="modalButtons buttonCorner" type='submit'>
           Log-in
         </button>
         </form>
+      <button class="modalButtons buttonCorner" formmethod="GET" formaction="/DonateUp_signup">
+          signup
+        </button>
+      <button class="modalButtons buttonCorner" formmethod="GET" formaction="/" onclick="closeM()">
+        Cancel
+      </button>
       </div>
       <br/>
       <p class="modalColor" id="changeTextColor">Forgot password</p>
