@@ -50,6 +50,10 @@ div#no_selected{
 div#charityChoice{
   display:none;
 }
+div#amountChoice{
+  display:none;
+}
+
 .w3-bar .w3-button {
   padding: 16px;
 }
@@ -115,6 +119,8 @@ div#charityChoice{
         <button class="btn-primary" id="yesBtn"> YES</button>
         <button id="noBtn"> No</button>
     </div>
+
+
     <!-- div for choosing charity and updating the flask from for the paypal button -->
     <div class="col-sm-6" id="charityChoice">
       <div class="card">
@@ -135,13 +141,33 @@ div#charityChoice{
           <p>Red cross is red cross you know</p>
           </div>
       </div>
-      <br>
+
+    </div> 
+
+    <!-- amount div -->
+    <div class="col-sm-6" id="amountChoice">
       <div class="card">
-          <button class="btn-primary btn-block btn-lg" id="submit_charity">Submit</button>
+        <div class="container w3-border">
+        <button class="btn-primary btn-block btn-lg" id="tencents" value=".25">25 Cents</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="container w3-border">
+         <button class="btn-primary btn-block btn-lg" id="fifcents" value=".50">50 Cents</button>
+      </div>
+      </div>
+      <div class="card">
+        <div class="container w3-border">
+          <button class="btn-primary btn-block btn-lg" id="onecents" value="1.00">1 Dollar</button>
+          </div>
       </div>
 
     </div> 
-        <!-- paypal button to replace yes no button plus some script -->
+    
+
+
+
+        <!-- paypal button to replace charity button plus some script -->
     <div class="col-sm-6 centered" id="paypal_div" >
       <form action="https://www.paypal.com/donate" method="post" target="_top">
           <input type="hidden" name="business" value="GL4TYB2U82X66" />

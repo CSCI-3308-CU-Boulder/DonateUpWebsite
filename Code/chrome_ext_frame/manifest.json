@@ -24,9 +24,7 @@
   
   "permissions": [
     "tabs",
-    "activeTab",
-    "http://*/*",
-    "https://*/*"
+    "activeTab"
   ],
   "background": {
     "scripts": ["background.js"]

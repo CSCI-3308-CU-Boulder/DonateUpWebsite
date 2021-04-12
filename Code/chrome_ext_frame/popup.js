@@ -1,13 +1,4 @@
-// docuent.addEventListener('DOMContentLoaded',function(){
-//   document.querySelector('button').addEventListener('click',onclick,false)
 
-//   function onclick () {
-//     chrome.tabs.query({currentWindow: true, active: true},
-//     fuction(tabs) {
-//       chrome.tabs.sendMessage(tabs[0].id, 'hi')
-//     })
-//   }
-// },false)
 
 //function to link nav bar to home page website
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,19 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-//function to link the paypal button to 
-document.addEventListener('DOMContentLoaded', function () {
-  var links = document.getElementsByTagName("form");
-  for (var i = 0; i < links.length; i++) {
-      (function () {
-          var ln = links[i];
-          var location = "https://www.paypal.com/donate?token=KXeAv_tPqxWHXJLecDPFIgAA2u2mfMVlN9NMTxPF8PiaNXC-TU9wjbkpO5Or5blDKBD6ZD8uAnsdqIt4";
-          ln.onclick = function () {
-              chrome.tabs.create({active: true, url: location});
-          };
-      })();
-  }
-});
+
 
 //function "yes" button to hide yes no buttons
   // also will display paypal button 
@@ -61,63 +40,56 @@ document.addEventListener('DOMContentLoaded', function () {
     //waits for click and when charity is clicked it changes the value of paypal button
   document.getElementById("char_1").addEventListener("click",function(){
       //changes value in paypal button
+      //////////////uncomment some stuff if clicking button shouldnt immediatley change to next button
     document.getElementById("charity_name").value =document.getElementById("char_1").innerHTML;
     //changes charity button to btn-secondary class
-    document.getElementById("char_1").classList.remove('btn-primary');
-    document.getElementById("char_1").classList.add('btn-secondary');
-    //make sure all other buttons are unselected //// this removes all classes then adds btn-primary
-    document.getElementById("char_2").classList.remove('btn-secondary');
-    document.getElementById("char_2").classList.remove('btn-primary');
-    document.getElementById("char_2").classList.add('btn-primary');
-    document.getElementById("char_3").classList.remove('btn-secondary');
-    document.getElementById("char_3").classList.remove('btn-primary');
-    document.getElementById("char_3").classList.add('btn-primary');
-    console.log(document.getElementById("charity_name").value);
+    // document.getElementById("char_1").classList.remove('btn-primary');
+    // document.getElementById("char_1").classList.add('btn-secondary');
+    // //make sure all other buttons are unselected //// this removes all classes then adds btn-primary
+    // document.getElementById("char_2").classList.remove('btn-secondary');
+    // document.getElementById("char_2").classList.remove('btn-primary');
+    // document.getElementById("char_2").classList.add('btn-primary');
+    // document.getElementById("char_3").classList.remove('btn-secondary');
+    // document.getElementById("char_3").classList.remove('btn-primary');
+    // document.getElementById("char_3").classList.add('btn-primary');
+    // console.log(document.getElementById("charity_name").value);
+
+    document.getElementById("charityChoice").style.display="none";
+  document.getElementById("amountChoice").style.display="initial";
   });
   //second charity
   document.getElementById("char_2").addEventListener("click",function(){
     //changes value in paypal button
   document.getElementById("charity_name").value =document.getElementById("char_2").innerHTML;
-  //changes charity button to btn-secondary class
-  document.getElementById("char_2").classList.remove('btn-primary');
-  document.getElementById("char_2").classList.add('btn-secondary');
-  //make sure all other buttons are unselected //// this removes all classes then adds btn-primary
-  document.getElementById("char_3").classList.remove('btn-secondary');
-  document.getElementById("char_3").classList.remove('btn-primary');
-  document.getElementById("char_3").classList.add('btn-primary');
-  document.getElementById("char_1").classList.remove('btn-secondary');
-  document.getElementById("char_1").classList.remove('btn-primary');
-  document.getElementById("char_1").classList.add('btn-primary');
-  console.log(document.getElementById("charity_name").value);
+  document.getElementById("charityChoice").style.display="none";
+  document.getElementById("amountChoice").style.display="initial";
 });
 //third charity
 document.getElementById("char_3").addEventListener("click",function(){
   //changes value in paypal button
 document.getElementById("charity_name").value =document.getElementById("char_3").innerHTML;
-//changes charity button to btn-secondary class
-document.getElementById("char_3").classList.remove('btn-primary');
-document.getElementById("char_3").classList.add('btn-secondary');
-//make sure all other buttons are unselected //// this removes all classes then adds btn-primary
-document.getElementById("char_2").classList.remove('btn-secondary');
-document.getElementById("char_2").classList.remove('btn-primary');
-document.getElementById("char_2").classList.add('btn-primary');
-document.getElementById("char_1").classList.remove('btn-secondary');
-document.getElementById("char_1").classList.remove('btn-primary');
-document.getElementById("char_1").classList.add('btn-primary');
-console.log(document.getElementById("charity_name").value);
+//change to next slide
+document.getElementById("charityChoice").style.display="none";
+  document.getElementById("amountChoice").style.display="initial";
 });
 
-//submit button shows paypal button and hides charity choice.
-document.getElementById("submit_charity").addEventListener("click",function(){
-  document.getElementById("charityChoice").style.display="none";
+//amount button shows paypal button and hides amount choice.
+document.getElementById("tencents").addEventListener("click",function(){
+  document.getElementById("amountChoice").style.display="none";
   document.getElementById("paypal_div").style.display="initial";
-  
-
+  document.getElementById("cost").value =document.getElementById("tencents").value;
 });
-
-
-
-
+document.getElementById("fifcents").addEventListener("click",function(){
+  document.getElementById("amountChoice").style.display="none";
+  document.getElementById("paypal_div").style.display="initial";
+  document.getElementById("cost").value =document.getElementById("fifcents").value;
+});
+document.getElementById("onecents").addEventListener("click",function(){
+  document.getElementById("amountChoice").style.display="none";
+  document.getElementById("paypal_div").style.display="initial";
+  document.getElementById("cost").value =document.getElementById("onecents").value;
+  console.log(document.getElementById("cost").value);
+});
 
 
 
