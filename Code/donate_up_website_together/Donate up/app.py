@@ -28,7 +28,10 @@ ur = "from EbayPriceScrape import scrapedValue"
 @app.route('/profile')
 def profile():
     if session['logged_in'] == True:
-        return render_template('DonateUp_MyProfile.html')
+        authedUser = userModel.query.filter_by(user_id=session['user']).first()
+        app.logger.info(authedUser.email)
+        data = {'user_id': authedUser.user_id, 'email': authedUser.email, 'name': authedUser.name}
+        return render_template('DonateUp_MyProfile.html', data=data)
     else:
         return home()
 
@@ -72,6 +75,9 @@ def user_login():
     #userLoginRequest = True
     if userLoginRequest:
         session['logged_in'] = True
+        session['user'] = userLoginRequest.user_id
+        app.logger.info('BAR')
+        app.logger.info(session['user'])
         return profile()
     else:
         flash('wrong password!')
@@ -96,6 +102,27 @@ def user_signup():
         db.session.commit()
         app.logger.info('%s created account successfully', newUser)
         return redirect(url_for('home'))
+
+@app.route('/updateProfile', methods=['POST'])
+def user_update():
+    newEmail = request.form['input-email']
+    newUser = request.form['input-name']
+    userID = session['user']
+    #newPassword = request.form['passwordField']
+    #confirmNewPassword = request.form['confirmPasswordField']
+    #if newPassword != confirmNewPassword:
+    #    app.logger.info('passwords do not match')
+    #    return redirect(url_for('home'))
+    userRecord = userModel.query.filter_by(user_id=userID).first()
+    if ((userRecord.email != newEmail) and (userModel.query.filter_by(email=newEmail).first())):
+        app.logger.info('email already exists')
+        return profile()
+    else:
+        userRecord.name = newUser
+        userRecord.email = newEmail
+        db.session.commit()
+        app.logger.info('%s updated account successfully', newUser)
+        return profile()
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)

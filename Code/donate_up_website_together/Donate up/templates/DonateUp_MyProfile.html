@@ -8,7 +8,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<body style="background-color: #FFD84E;">
+<script type="text/javascript">
+	function dataLoad(){
+ var email = '{{ data.email }}';
+ var name = '{{ data.name }}';
+ document.getElementById("input-email").value = email;
+ document.getElementById("input-name").value = name;
+	}
+</script>
+<body onload="dataLoad()" style="background-color: #FFD84E;">
 <header>
   <div class="container-fluid">
     <nav class="navbar"> <!--Use the .css page to adjust this.-->
@@ -43,9 +51,10 @@
             </div>
           </div>
         </div>
+	<form action="/updateProfile" method="POST">
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
           <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-sm btn-info mr-4">Update Profile</a>
+            <button class="btn btn-sm btn-info mr-4" type='submit'>Update Profile</button>
             <a href="#" class="btn btn-sm btn-default float-right">Settings</a>
           </div>
         </div>
@@ -90,26 +99,30 @@
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
               <div class="row">
+            <!--  
                 <div class="col-lg-6">
                   <div class="form-group focused">
                     <label class="form-control-label" for="input-username">Username</label>
                     <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="CyberSuccess">
                   </div>
                 </div>
+	    -->
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">Email address</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="CyberSuccess.gmail.com">
+                    <input type="email" name="input-email" id="input-email" class="form-control form-control-alternative" value="example@example.com">
+	
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group focused">
-                    <label class="form-control-label" for="input-first-name">First name</label>
-                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Cyber">
+                    <label class="form-control-label" for="input-name">Name</label>
+                    <input type="text" name="input-name" id="input-name" class="form-control form-control-alternative" placeholder="Name" value="Cyber">
                   </div>
                 </div>
+            <!--  
                 <div class="col-lg-6">
                   <div class="form-group focused">
                     <label class="form-control-label" for="input-last-name">Last name</label>
@@ -117,7 +130,9 @@
                   </div>
                 </div>
               </div>
+	    -->
             </div>
+	    </form>
             <hr class="my-4">
             <!-- Address -->
             <h6 class="heading-small text-muted mb-4">Contact information</h6>
