@@ -49,8 +49,6 @@ def home():
 def addDonation():
     return render_template('DonateUp_home.html')
 
-# Made with help from https://pythonspot.com/login-authentication-with-flask/
-
 @app.route("/price", methods=['POST', 'GET'])
 def price():
     price = 0
@@ -64,10 +62,11 @@ def price():
       user = request.args.get('nm')
       return render_template('DonateUp_home.html', price = price)
 
+# Made with help from https://pythonspot.com/login-authentication-with-flask/
 @app.route('/login', methods=['POST'])
 def user_login():
-    Session = sessionmaker(bind=db)
-    s = Session()
+    #Session = sessionmaker(bind=db)
+    #s = Session()
     userLoginRequest = request.form['email']
     passwordLoginRequest = request.form['pwd']
     userLoginRequest = userModel.query.filter_by(email=request.form['email'],password=request.form['pwd']).first()
