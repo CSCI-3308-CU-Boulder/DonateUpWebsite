@@ -1,6 +1,8 @@
 #!/bin/env python3
 from flask import Flask, render_template, current_app, flash, redirect, request, session, abort, url_for
 import os
+import requests
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import sessionmaker
 app = Flask(__name__)
@@ -23,6 +25,33 @@ class userModel(db.Model):
 
 #    def __repr__(self):
 
+class donationModel(db.Model):
+    __tablename__ = 'donation_history'
+
+    donation_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer())
+    charity_id = db.Column(db.Integer())
+    amount = db.Column(db.Float())
+    datetime = db.Column(db.DateTime(), default=datetime.now())
+
+    def __init__(self, user_id, charity_id, amount):
+        self.user_id = user_id
+        self.charity_id = charity_id
+        self.amount = amount
+
+class charityModel(db.Model):
+    __tablename__ = 'charity'
+
+    charity_id = db.Column(db.Integer, primary_key=True)
+    charity_name = db.Column(db.String())
+    charity_link = db.Column(db.String())
+    charity_description = db.Column(db.String())
+
+    def __init__(self, charity_name, charity_link, charity_description):
+        self.charity_name = charity_name
+        self.charity_link = charity_link
+        self.charity_description = charity_description
+
 ur = "from EbayPriceScrape import scrapedValue"
 
 @app.route('/profile')
@@ -44,10 +73,40 @@ def render_static(page_name):
 def home():
     return render_template('DonateUp_home.html')
 
-@app.route('/addDonation', methods=['POST'])
+@app.route('/donate', methods=['POST'])
 #placeholder for where the chrome extension will send data
+#<form action="https://www.paypal.com/donate" method="post" target="_top">
+#          <nput type="hidden" name="business" value="GL4TYB2U82X66" />
+#          <nput type="hidden" name="item_name" value = "St Jude!">
+#          <nput type="hidden" name="currency_code" value="USD" />
+#          <nput type="hidden" name="amount" id="cost" value="0"/>
 def addDonation():
-    return render_template('DonateUp_home.html')
+    URL = "https://www.paypal.com/donate/"
+    business = request.form['business']
+    item_name = request.form['item_name']
+    currency_code = request.form['currency_code']
+    amount = request.form['amount']
+    app.logger.info(business)
+    charity = charityModel.query.filter_by(charity_link=business).first()
+    if session and session['logged_in']:
+        app.logger.info('asdfasfdasfd')
+        addUser = session['user']
+        addCharity = charity.charity_id
+        addAmount = float(amount)
+        newDonation = donationModel(addUser,addCharity,addAmount)
+        db.session.add(newDonation)
+        db.session.commit()
+        #app.logger.info('%s donation successful', amount)
+        #postData = {"business": form[business],
+        #            "item_name": form[item_name],
+        #            "currency_code": form[currency_code],
+        #            "amount": form[amount]
+        #            }
+        #postReq = requests.post(url = URL, data = postData)
+        #app.logger.info(postReq.content)
+        return redirect(URL, code=307)
+    else:
+        return home()
 
 @app.route("/price", methods=['POST', 'GET'])
 def price():
