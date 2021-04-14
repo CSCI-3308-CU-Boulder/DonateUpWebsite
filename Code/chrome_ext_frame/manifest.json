@@ -8,8 +8,9 @@
       
       "http://*/cart",
       "https://*/cart",
-      "https://*/us/cart"
-      
+      "https://*/us/cart",
+      "https://www.amazon.com/gp/cart/*",
+      "https://cart.ebay.com/*"
     ],
     "js": ["content.js"]
     }

@@ -94,17 +94,6 @@ div#amountChoice{
   <a href="#contact"  class="w3-bar-item w3-button">Sign Up/Log In</a>
 </nav>
 
-<!-- <form action = "/" method = "post">
-  <p><input type = "submit" value = "submit" /></p>
-</form> -->
-
-<!-- button to practice getting data  -->
-
-
-<!-- Header with full-height image -->
-<!-- <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-<h1> {{ FlaskTest }} </h1>
-</header> -->
 
 <!-- Mid contaier and row with txt and photo-->
 <!-- <h1>hellooo</h1> -->
@@ -121,52 +110,56 @@ div#amountChoice{
     </div>
 
 
+    <!-- ------------------------------------ -->
     <!-- div for choosing charity and updating the flask from for the paypal button -->
     <div class="col-sm-6" id="charityChoice">
-      <div class="card">
-        <div class="container w3-border">
-        <button class="btn-primary btn-block btn-lg" id="char_1">St. Jude</button>
+      <div class="container">
+      <div class="row">
+        <div class="col-sm">
+        <button class="btn-primary btn-block btn-lg" id="char_1" style="height: 80px;">St. Jude</button>
         <p>St. Jude is a small Jude St. Charity</p>
         </div>
-      </div>
-      <div class="card">
-        <div class="container w3-border">
-         <button class="btn-primary btn-block btn-lg" id="char_2">Heidi's Heroes</button>
+        <div class="col-sm">
+         <button class="btn-primary btn-block btn-lg" id="char_2" style="height: 80px;">Heidi's Heroes</button>
          <p>Heidi's Heroes is a childhood cancer non-profit</p>
       </div>
       </div>
-      <div class="card">
-        <div class="container w3-border">
-          <button class="btn-primary btn-block btn-lg" id="char_3">Red Cross</button>
+      <div class="row">
+        <div class="col-sm">
+          <button class="btn-primary btn-block btn-lg" id="char_3" style="height: 80px;">Red Cross</button>
           <p>Red cross is red cross you know</p>
           </div>
       </div>
+    </div>
 
     </div> 
 
+    <!-- ------------------------------------ -->
     <!-- amount div -->
-    <div class="col-sm-6" id="amountChoice">
-      <div class="card">
-        <div class="container w3-border">
-        <button class="btn-primary btn-block btn-lg" id="tencents" value=".25">25 Cents</button>
+<div class="col-sm-6" id="amountChoice">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn-primary btn-block btn-lg" id="tencents" value=".25" style="height: 80px;">$0.25</button>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn-primary  btn-block btn-lg" id="fifcents" value=".50" style="height: 80px;">$0.50</button>
+            </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="container w3-border">
-         <button class="btn-primary btn-block btn-lg" id="fifcents" value=".50">50 Cents</button>
-      </div>
-      </div>
-      <div class="card">
-        <div class="container w3-border">
-          <button class="btn-primary btn-block btn-lg" id="onecents" value="1.00">1 Dollar</button>
-          </div>
-      </div>
-
+        <div class="row">
+            <div class="col-sm-6">
+                 <button class="btn-primary btn-block btn-lg" id="onecents" value="1.00" style="height: 80px;">$1.00</button>
+            </div>
+            <div class="col-sm-6">
+                 <button class="btn-primary btn-block btn-lg" id="5hun" value="5.00" style="height: 80px;">$5.00</button>
+            </div>
+        </div>
     </div> 
+</div>
     
 
 
-
+        <!-- ------------------------------------ -->
         <!-- paypal button to replace charity button plus some script -->
     <div class="col-sm-6 centered" id="paypal_div" >
       <form action="https://donateup.life/donate" method="post" target="_top">

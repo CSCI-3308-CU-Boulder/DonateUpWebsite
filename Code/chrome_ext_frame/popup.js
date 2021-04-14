@@ -90,6 +90,12 @@ document.getElementById("onecents").addEventListener("click",function(){
   document.getElementById("cost").value =document.getElementById("onecents").value;
   console.log(document.getElementById("cost").value);
 });
+document.getElementById("5hun").addEventListener("click",function(){
+  document.getElementById("amountChoice").style.display="none";
+  document.getElementById("paypal_div").style.display="initial";
+  document.getElementById("cost").value =document.getElementById("5hun").value;
+  console.log(document.getElementById("cost").value);
+});
 
 
 
