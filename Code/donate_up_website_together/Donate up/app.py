@@ -106,7 +106,7 @@ def addDonation():
         #app.logger.info(postReq.content)
         return redirect(URL, code=307)
     else:
-        return home()
+        return redirect(URL, code=307)
 
 @app.route("/price", methods=['POST', 'GET'])
 def price():
