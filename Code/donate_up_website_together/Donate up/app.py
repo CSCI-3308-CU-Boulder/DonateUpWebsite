@@ -1,5 +1,5 @@
 #!/bin/env python3
-from flask import Flask, render_template, current_app, flash, redirect, request, session, abort, url_for
+from flask import Flask, render_template, current_app, flash, redirect, request, session, abort, url_for, send_from_directory
 import os
 import requests
 from datetime import datetime
@@ -9,6 +9,10 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://dbuser:pass@localhost:5432/donateup"
 db = SQLAlchemy(app)
+
+@app.route('/favicon.ico/')
+def favicon():
+    return app.send_static_file('favicon.ico')
 
 class userModel(db.Model):
     __tablename__ = 'users'
