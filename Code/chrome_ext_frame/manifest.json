@@ -21,6 +21,9 @@
     "default_title": "Yay"
 
   },
+  "icons": { "16": "16c.png",
+           "48": "48c.png",
+          "128": "128c.png" },
   
   "permissions": [
     "tabs",
