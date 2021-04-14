@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
       (function () {
           //loops through and stores all links in links[]
           var ln = links[i];
-          var location = ln.href;
+          var location = ln.name;
           ln.onclick = function () {
               chrome.tabs.create({active: true, url: location});
           };
