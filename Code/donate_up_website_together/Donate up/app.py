@@ -12,7 +12,8 @@ db = SQLAlchemy(app)
 
 @app.route('/favicon.ico/')
 def favicon():
-    return app.send_static_file('favicon.ico')
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 class userModel(db.Model):
     __tablename__ = 'users'
@@ -60,13 +61,17 @@ ur = "from EbayPriceScrape import scrapedValue"
 
 @app.route('/profile')
 def profile():
-    if session['logged_in'] == True:
+    if session and session['logged_in']:
         authedUser = userModel.query.filter_by(user_id=session['user']).first()
         app.logger.info(authedUser.email)
         data = {'user_id': authedUser.user_id, 'email': authedUser.email, 'name': authedUser.name}
         return render_template('DonateUp_MyProfile.html', data=data)
     else:
         return home()
+
+@app.route('/about')
+def about():
+    return render_template('DonateUp_AboutUs.html')
 
 @app.route('/<string:page_name>/')
 def render_static(page_name):
