@@ -83,11 +83,10 @@
           </form>
           <!-- BUTTON FOR DOWNLOAD-->
           <div class="btn-group" onclick="pricePercent()">
-            <button id ="1p">1%</button>
-            <button id = "5p">5%</button>
-            <button id = "10p">10%</button>
-            <button id = "change">Change</button>
-            <input id = "cp">Custom</input>
+            <button id ="1p" onclick="pricePercent(.01)">1%</button>
+            <button id = "5p" onclick="pricePercent(.05)" >5%</button>
+            <button id = "10p" onclick="pricePercent(.1)" >10%</button>
+            <button id = "change" onclick="pricePercent(-1)" >Change</button>
           </div>
 
         <!-- BUTTON FOR DOWNLOAD-->
@@ -197,7 +196,18 @@ function closeM(){
   
 }
 
-
+function pricePercent(x){
+  if(x == -1){
+    document.getElementById("h1Cost").innerHTML = ceil(document.getElementById("h1Cost").innerHTML)-document.getElementById("h1Cost").innerHTML;
+  }
+  if(x == -2 ){
+    document.getElementById("h1Cost").innerHTML = document.getElementById("cp").value *.01* document.getElementById("h1Cost").innerHTML;
+  }
+  else{
+    document.getElementById("h1Cost").innerHTML = document.getElementById("h1Cost").innerHTML * x;
+  }
+  document.getElementById("cost").value = document.getElementById("h1Cost").innerHTML;
+}
 
 </script>
 </body>
