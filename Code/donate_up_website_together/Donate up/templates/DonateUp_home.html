@@ -81,6 +81,14 @@
           <p><input type = "text" name = "nm" /></p>
           <p><input type = "submit" value = "Calculate Donation" /></p>
           </form>
+          <!-- BUTTON FOR DOWNLOAD-->
+          <div class="btn-group" onclick="pricePercent()">
+            <button id ="1p" onclick="pricePercent(.01)">1%</button>
+            <button id = "5p" onclick="pricePercent(.05)" >5%</button>
+            <button id = "10p" onclick="pricePercent(.1)" >10%</button>
+            <button id = "change" onclick="pricePercent(-1)" >Change</button>
+          </div>
+
         <!-- BUTTON FOR DOWNLOAD-->
         <br>
         <br>
@@ -187,6 +195,18 @@ function closeM(){
   m.classList.remove("showModal");
   
 }
+
+function pricePercent(x){
+  var num = float(document.getElementById("h1Cost").innerHTML);
+  if(x == -1){
+    document.getElementById("h1Cost").innerHTML = ceil(num)-num;
+  }
+  else{
+    document.getElementById("h1Cost").innerHTML = num * x;
+  }
+  document.getElementById("cost").value = document.getElementById("h1Cost").innerHTML;
+}
+
 </script>
 </body>
 </html>

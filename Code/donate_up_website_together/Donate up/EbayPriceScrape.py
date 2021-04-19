@@ -25,7 +25,7 @@ def get_detail_data(soup):
 def main(url):
     if(validators.url(url)):
         scrapedValue = get_detail_data(get_page(url))
-        return scrapedValue
+        return float(scrapedValue)
     else:
         print("invlaid URL")
         return "invalid URL"
