@@ -197,14 +197,12 @@ function closeM(){
 }
 
 function pricePercent(x){
+  var num = document.getElementById("h1Cost").innerHTML;
   if(x == -1){
-    document.getElementById("h1Cost").innerHTML = ceil(document.getElementById("h1Cost").innerHTML)-document.getElementById("h1Cost").innerHTML;
-  }
-  if(x == -2 ){
-    document.getElementById("h1Cost").innerHTML = document.getElementById("cp").value *.01* document.getElementById("h1Cost").innerHTML;
+    document.getElementById("h1Cost").innerHTML = ceil(num)-num;
   }
   else{
-    document.getElementById("h1Cost").innerHTML = document.getElementById("h1Cost").innerHTML * x;
+    document.getElementById("h1Cost").innerHTML = num * x;
   }
   document.getElementById("cost").value = document.getElementById("h1Cost").innerHTML;
 }
