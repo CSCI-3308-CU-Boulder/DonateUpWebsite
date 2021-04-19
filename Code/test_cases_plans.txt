@@ -1,0 +1,17 @@
+Test Plans:
+
+Test Websites/Product URLs DonateUp accepts.
+1. Donate Up’s website and URL-page scan functionality is dependent upon an immense amount of URL and item ID HTML information, as the python code uses URLs to request pages HTML then searches for an item with an ID. Through testing and identifying failures the code can only improve as more product HTML IDs are added to identify item prices. The data collected during all tests should account for failure types: URL or ID. This information will be used to update the accepted URL and IDs on the price scrape python file. Test cases should be enacted in the python app.py file and have the URL variable be manipulated by posts within the test cases. Ideally, all test cases should account for the majority of Ebay, Amazon, Nike, and Etsy item ID’s in which the python API requests. Failed test cases should be specific and output the exact problem from invalid URLs, request failures, and unable to identify ID(NoneType errors). During integration testing our group will see if the URLs pass on the actual website, once passed our group will begin to use URLs of choice. During User Acceptance testing users will use URLs of their choice from the above website, and take notes on the functionality, failure types, and useability.
+
+2.  Chrome extension: 
+For the chrome extension there will be several tests. The first tests will be to make sure that the chrome extension recognizes and pops up at all of the decided cart pages that we want it to work with: nike, ebay, adidas. 
+Another test case for the extension will be that when the donation button is hit, that it will post the correct user and donation data to the db. 
+ 
+3. User login/signup
+User signup will be a submission of: email, account name, password, and password confirmation.
+Test cases will check that email is valid, the email does not already exist in the database, the password meets password requirements, the confirmation password matches the password field.
+To test these, data will be submitted to positively and negatively confirm that the above functions.
+User login will be a submission of: email and password.
+Test cases will check that the email is valid, that it exists in the database, that the password matches the password in the database for the account.
+Similar to signup, positive and negative tests will be created for these.
+
