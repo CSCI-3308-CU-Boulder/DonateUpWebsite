@@ -61,11 +61,24 @@ ur = "from EbayPriceScrape import scrapedValue"
 
 @app.route('/profile')
 def profile():
+    #maybe this table stuff should be in javascript, but I guess it at least works
     if session and session['logged_in']:
         authedUser = userModel.query.filter_by(user_id=session['user']).first()
-        app.logger.info(authedUser.email)
+        userDonationHistory = donationModel.query.filter_by(user_id=session['user']).all()
+        donations = []
+        if userDonationHistory:
+            for row in userDonationHistory:
+                donations.append({'donation_id': row.donation_id,
+                     'charity_id': row.charity_id,
+                     'amount': row.amount,
+                     'datetime': row.datetime,
+                     })
+        htmlDonations = "<table class='table table-bordered' id='stats_table'><tr><th class='align-bottom'>Donation ID</th><th class='align-bottom'>Charity ID</th><th class='text-center' >Amount</th><th class='align-bottom' >datetime</th></tr>"
+        for row in donations:
+            htmlDonations += "<tr><th class='align-bottom' >" + str(row['donation_id']) + "</th><th class='align-bottom'>" + str(row['charity_id']) + "</th><th class='text-center' >" + str(row['amount']) + "</th><th class='align-bottom' >" + str(row['datetime']) + "</th></tr>"
+        htmlDonations += "</table>"
         data = {'user_id': authedUser.user_id, 'email': authedUser.email, 'name': authedUser.name}
-        return render_template('DonateUp_MyProfile.html', data=data)
+        return render_template('DonateUp_MyProfile.html', data=data, donations=htmlDonations)
     else:
         return home()
 
