@@ -197,7 +197,7 @@ function closeM(){
 }
 
 function pricePercent(x){
-  var num = document.getElementById("h1Cost").innerHTML;
+  var num = float(document.getElementById("h1Cost").innerHTML);
   if(x == -1){
     document.getElementById("h1Cost").innerHTML = ceil(num)-num;
   }
