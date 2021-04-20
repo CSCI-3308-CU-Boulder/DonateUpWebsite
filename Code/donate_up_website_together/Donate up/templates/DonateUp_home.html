@@ -76,13 +76,14 @@
         </p>
 	        <h2> Donation Amount:</h2>
         <h3 id ="h1Cost"> {{ price }} </h3>
+        <h3 id ="dh1"></h3>
         <form action = "https://donateup.life/price" method = "post">
           <p>Enter URL:</p>
           <p><input type = "text" name = "nm" /></p>
-          <p><input type = "submit" value = "Calculate Donation" /></p>
+          <p><input type = "submit" value = "Calculate Price" /></p>
           </form>
           <!-- BUTTON FOR DOWNLOAD-->
-          <div class="btn-group" onclick="pricePercent()">
+          <div class="btn-group" id = "pbutton"></div>
             <button id ="1p" onclick="pricePercent(.01)">1%</button>
             <button id = "5p" onclick="pricePercent(.05)" >5%</button>
             <button id = "10p" onclick="pricePercent(.1)" >10%</button>
@@ -186,7 +187,6 @@
 function openModal(){
   let modal= document.querySelector('#modal-window');
   modal.classList.add("showModal");
-  
 }
 
 function closeM(){
@@ -199,13 +199,16 @@ function closeM(){
 function pricePercent(x){
   var num = float(document.getElementById("h1Cost").innerHTML);
   if(x == -1){
-    document.getElementById("h1Cost").innerHTML = ceil(num)-num;
+    document.getElementById("dh1").innerHTML = ceil(num)-num;
   }
   else{
-    document.getElementById("h1Cost").innerHTML = num * x;
+    document.getElementById("dh1").innerHTML = x;
   }
-  document.getElementById("cost").value = document.getElementById("h1Cost").innerHTML;
+  console.log("yeet");
+  document.getElementById("cost").value = document.getElementById("dh1").innerHTML;
 }
+
+
 
 </script>
 </body>
