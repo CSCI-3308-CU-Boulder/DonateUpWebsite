@@ -74,20 +74,16 @@
         <p style="color:#887F7F">
             Donate Up, the effortless way to build charity into your digital life. Make a difference starting today!
         </p>
-	        <h2> Donation Amount:</h2>
-        <h3 id ="h1Cost"> {{ price }} </h3>
-        <h3 id ="dh1"></h3>
+	        <h2> Donation Calculator:</h2>
+          <h3 style="display:inline;">Item Price $</h3><h3 id ="h1Cost" splay:inline;"> {{ price }} </h3>
+        <h3 style="display:inline;">Donation Price $</h3><h3 id ="dh1" style="display:inline;"></h3>
         <form action = "https://donateup.life/price" method = "post">
           <p>Enter URL:</p>
           <p><input type = "text" name = "nm" /></p>
           <p><input type = "submit" value = "Calculate Price" /></p>
           </form>
           <!-- BUTTON FOR DOWNLOAD-->
-<<<<<<< HEAD
-          <div class="btn-group" id = "pbutton"></div>
-=======
           <div class="btn-group">
->>>>>>> f97ad71c77662bd384ff58eb2de4f988a545e451
             <button id ="1p" onclick="pricePercent(.01)">1%</button>
             <button id = "5p" onclick="pricePercent(.05)" >5%</button>
             <button id = "10p" onclick="pricePercent(.1)" >10%</button>
@@ -206,7 +202,7 @@ function pricePercent(x){
     document.getElementById("dh1").innerHTML = ceil(num)-num;
   }
   else{
-    document.getElementById("h1Cost").innerHTML = num * x;
+    document.getElementById("dh1").innerHTML = num * x;
   }
   document.getElementById("cost").value = document.getElementById("dh1").innerHTML;
 }
