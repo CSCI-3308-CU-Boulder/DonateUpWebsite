@@ -82,7 +82,7 @@
           <p><input type = "submit" value = "Calculate Donation" /></p>
           </form>
           <!-- BUTTON FOR DOWNLOAD-->
-          <div class="btn-group" onclick="pricePercent()">
+          <div class="btn-group">
             <button id ="1p" onclick="pricePercent(.01)">1%</button>
             <button id = "5p" onclick="pricePercent(.05)" >5%</button>
             <button id = "10p" onclick="pricePercent(.1)" >10%</button>
@@ -197,13 +197,16 @@ function closeM(){
 }
 
 function pricePercent(x){
-  var num = float(document.getElementById("h1Cost").innerHTML);
   if(x == -1){
     document.getElementById("h1Cost").innerHTML = ceil(num)-num;
   }
   else{
-    document.getElementById("h1Cost").innerHTML = num * x;
+    document.getElementById("h1Cost").innerHTML = document.getElementById("h1Cost").innerHTML * x;
   }
+  document.getElementById("p1").disabled = true;
+  document.getElementById("p5").disabled = true;
+  document.getElementById("p10").disabled = true;
+  document.getElementById("change").disabled = true;
   document.getElementById("cost").value = document.getElementById("h1Cost").innerHTML;
 }
 
