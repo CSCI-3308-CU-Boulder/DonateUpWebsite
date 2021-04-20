@@ -83,7 +83,11 @@
           <p><input type = "submit" value = "Calculate Price" /></p>
           </form>
           <!-- BUTTON FOR DOWNLOAD-->
+<<<<<<< HEAD
           <div class="btn-group" id = "pbutton"></div>
+=======
+          <div class="btn-group">
+>>>>>>> f97ad71c77662bd384ff58eb2de4f988a545e451
             <button id ="1p" onclick="pricePercent(.01)">1%</button>
             <button id = "5p" onclick="pricePercent(.05)" >5%</button>
             <button id = "10p" onclick="pricePercent(.1)" >10%</button>
@@ -197,14 +201,13 @@ function closeM(){
 }
 
 function pricePercent(x){
-  var num = float(document.getElementById("h1Cost").innerHTML);
+  num = document.getElementById("h1Cost").innerHTML;
   if(x == -1){
     document.getElementById("dh1").innerHTML = ceil(num)-num;
   }
   else{
-    document.getElementById("dh1").innerHTML = x;
+    document.getElementById("h1Cost").innerHTML = num * x;
   }
-  console.log("yeet");
   document.getElementById("cost").value = document.getElementById("dh1").innerHTML;
 }
 
